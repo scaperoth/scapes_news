@@ -1,2 +1,3 @@
 class NewsSource < ActiveRecord::Base
+  acts_as_votable 
 end
