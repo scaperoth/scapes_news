@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require js/util
+//= require js/skel.min
+//= require js/main
 //= require turbolinks
 //= require bootstrap
 
