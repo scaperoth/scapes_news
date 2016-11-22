@@ -1,20 +1,19 @@
-<%= abort @feed %>
 
 <!-- Banner -->
   <section id="banner">
     <div class="content">
+      <% first_element = @feed['item'].shift %>
       <header>
-        <h1>Hi, I’m Editorial<br />
-        by HTML5 UP</h1>
-        <p>A free and fully responsive site template</p>
+        <h1><%= first_element['title'] %></h1>
+        <p><%= display_array first_element['category'] %></p>
       </header>
-      <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+      <p><%= strip_tags first_element['description'] %></p>
       <ul class="actions">
         <li><a href="#" class="button big">Learn More</a></li>
       </ul>
     </div>
     <span class="image object">
-      <img src="assets/pic10.jpg" alt="" />
+      <%= get_img_tag(first_element['description']).to_s.html_safe %>
     </span>
   </section>
 
@@ -24,53 +23,16 @@
       <h2>Ipsum sed dolor</h2>
     </header>
     <div class="posts">
+      <% @feed['item'].each do |f| %>
       <article>
-        <a href="#" class="image"><img src="assets/pic01.jpg" alt="" /></a>
-        <h3>Interdum aenean</h3>
-        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+        <a target='_blank' href="<%= f['link'] %>" class="image"><div class="background-img" style="background-image: url('<%= get_img_src(f['description']) %>') "></div></a>
+        <h3><%= f['title'] %></h3>
+        <p><%= display_array f['category'] %></p>
+        <p><%= strip_tags f['description'] %></p>
         <ul class="actions">
-          <li><a href="#" class="button">More</a></li>
+          <li><a href="<%= f['link'] %>" target='_blank' class="button">More</a></li>
         </ul>
       </article>
-      <article>
-        <a href="#" class="image"><img src="assets/pic02.jpg" alt="" /></a>
-        <h3>Nulla amet dolore</h3>
-        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-        <ul class="actions">
-          <li><a href="#" class="button">More</a></li>
-        </ul>
-      </article>
-      <article>
-        <a href="#" class="image"><img src="assets/pic03.jpg" alt="" /></a>
-        <h3>Tempus ullamcorper</h3>
-        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-        <ul class="actions">
-          <li><a href="#" class="button">More</a></li>
-        </ul>
-      </article>
-      <article>
-        <a href="#" class="image"><img src="assets/pic04.jpg" alt="" /></a>
-        <h3>Sed etiam facilis</h3>
-        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-        <ul class="actions">
-          <li><a href="#" class="button">More</a></li>
-        </ul>
-      </article>
-      <article>
-        <a href="#" class="image"><img src="assets/pic05.jpg" alt="" /></a>
-        <h3>Feugiat lorem aenean</h3>
-        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-        <ul class="actions">
-          <li><a href="#" class="button">More</a></li>
-        </ul>
-      </article>
-      <article>
-        <a href="#" class="image"><img src="assets/pic06.jpg" alt="" /></a>
-        <h3>Amet varius aliquam</h3>
-        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-        <ul class="actions">
-          <li><a href="#" class="button">More</a></li>
-        </ul>
-      </article>
+      <% end %>
     </div>
   </section>
