@@ -1,0 +1,16 @@
+<%= simple_form_for(@news_source) do |f| %>
+<%= f.error_notification %>
+<div class="form-inputs">
+    <div class="6u 12u$(xsmall)">
+        <%= f.input :name %>
+    </div>
+
+    <div class="6u 12u$(xsmall)">
+        <%= f.input :url %>
+    </div>
+</div>
+
+<div class="form-actions">
+    <%= f.button :submit %>
+</div>
+<% end %>

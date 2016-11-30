@@ -1,0 +1,16 @@
+<% if !article.nil? %>
+<article>
+    <legend class="source-title"><%= article.news_source.name %></legend>
+    <a target='_blank' href="<%= article.link %>" class="image">
+        <div class="background-img" style="background-image: url('<%= article.image %>') "></div>
+    </a>
+    <h3><%= article.title %></h3>
+    <p>Categories: <%= article.categories %></p>
+    <p><%= sanitize article.description, tags: %w(strong em a), attributes: %w(href) %></p>
+    <ul class="actions">
+        <li>
+            <a href="<%= article.link %>" target='_blank' class="button">More</a>
+        </li>
+    </ul>
+</article>
+<% end %>

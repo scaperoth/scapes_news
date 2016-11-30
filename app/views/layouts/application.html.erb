@@ -9,7 +9,6 @@
         <%= csrf_meta_tags %>
         <meta name="viewport" content="width=device-width, initial-scale=1"/></head>
     <body>
-        <%= bootstrap_flash %>
 
         <!-- Wrapper -->
         <div id="wrapper">
@@ -17,7 +16,9 @@
             <!-- Main -->
             <div id="main">
                 <div class="inner">
+                  
                     <%= render partial: "elements/header" %>
+                  </br>
                     <%= yield %>
                 </div>
             </div>

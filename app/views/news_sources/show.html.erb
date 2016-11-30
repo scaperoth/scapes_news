@@ -1,0 +1,7 @@
+<%= bootstrap_flash %>
+
+<p>Name: <%= @news_source.name %> </p>
+<p>URL: <%= @news_source.url %> </p>
+
+<%= link_to 'Edit', edit_news_source_path(@news_source) %> |
+<%= link_to 'Back', news_sources_path %>

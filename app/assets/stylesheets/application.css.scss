@@ -17,3 +17,33 @@
 
 *= require_self
 */
+
+label{
+  margin:1em 0 0 0;
+}
+
+legend small{
+  font-size:.6em;
+}
+
+#main > .inner > section{
+  padding: 3em 0 4em 0;
+}
+
+.form-actions{
+  margin-top:1em;
+}
+
+.alert-success{
+  background: rgba(147,219,112, .5);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+  button.close{
+    font-size:1.1em;
+    line-height: 1em;
+    letter-spacing: 1em;
+    padding: 0 .6em;
+    box-shadow: none;
+  }
+}

@@ -1,38 +1,25 @@
 
 <!-- Banner -->
-  <section id="banner">
-    <div class="content">
-      <% first_element = @feed['item'].shift %>
-      <header>
-        <h1><%= first_element['title'] %></h1>
-        <p><%= display_array first_element['category'] %></p>
-      </header>
-      <p><%= strip_tags first_element['description'] %></p>
-      <ul class="actions">
-        <li><a href="#" class="button big">Learn More</a></li>
-      </ul>
-    </div>
-    <span class="image object">
-      <%= get_img_tag(first_element['description']).to_s.html_safe %>
-    </span>
-  </section>
+<%= 
+# create the banner using only the first 
+# feed item from the model 
+render 'elements/banner', item: @news_items.first 
+%>
 
 <!-- Section -->
-  <section>
-    <header class="major">
-      <h2>Ipsum sed dolor</h2>
-    </header>
-    <div class="posts">
-      <% @feed['item'].each do |f| %>
-      <article>
-        <a target='_blank' href="<%= f['link'] %>" class="image"><div class="background-img" style="background-image: url('<%= get_img_src(f['description']) %>') "></div></a>
-        <h3><%= f['title'] %></h3>
-        <p><%= display_array f['category'] %></p>
-        <p><%= strip_tags f['description'] %></p>
-        <ul class="actions">
-          <li><a href="<%= f['link'] %>" target='_blank' class="button">More</a></li>
-        </ul>
-      </article>
-      <% end %>
-    </div>
-  </section>
+<section>
+  <header class="major">
+    <h2>Ipsum sed dolor</h2>
+  </header>
+  <div class="posts">
+    
+    <% 
+    # loop through all but the 
+    # first element and create an 
+    # article out of each feed item 
+    @news_items.all[1..-1].each do |f| 
+    %>
+      <%= render 'elements/article', article: f %>
+    <% end %>
+  </div>
+</section>
