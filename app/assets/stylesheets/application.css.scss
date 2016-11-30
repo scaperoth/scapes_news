@@ -10,25 +10,40 @@
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
 *
+*= require css/font-awesome.min
+*= require css/main
 *= require_tree .
 *= stub active_admin
 
 *= require_self
 */
-@import "bootstrap_configuration";
 
-@import "bootstrap-sprockets";
-
-@import "bootstrap";
-
-//->Prelang (ui_framework:twitter_bootstrap)
-
-// Give everything in 'yield' margin to separate it.
-.yield {
-  margin: 30px;
+label{
+  margin:1em 0 0 0;
 }
 
-// Constrain forms for models (scaffolded models) so they aren't full page width.
-.form-model {
-  max-width: 750px;
+legend small{
+  font-size:.6em;
+}
+
+#main > .inner > section{
+  padding: 3em 0 4em 0;
+}
+
+.form-actions{
+  margin-top:1em;
+}
+
+.alert-success{
+  background: rgba(147,219,112, .5);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+  button.close{
+    font-size:1.1em;
+    line-height: 1em;
+    letter-spacing: 1em;
+    padding: 0 .6em;
+    box-shadow: none;
+  }
 }

@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ScapesNews</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-<meta name="viewport" content="width=device-width, initial-scale=1"/></head>
-<body>
-<%= render partial: "elements/navbar" %>
-<%= bootstrap_flash %>
+    <head>
+        <title>ScapesNews</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
+        <%= csrf_meta_tags %>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/></head>
+    <body>
 
-<%= yield %>
+        <!-- Wrapper -->
+        <div id="wrapper">
 
-</body>
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
+                  
+                    <%= render partial: "elements/header" %>
+                  </br>
+                    <%= yield %>
+                </div>
+            </div>
+            <%= render partial: "elements/sidebar" %>
+        </div>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    </body>
 </html>

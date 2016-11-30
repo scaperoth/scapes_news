@@ -1,0 +1,17 @@
+<% item ||= NewsItem.first %>
+<section id="banner">
+  <div class="content">
+    <legend class="source-title"><%= item.news_source.name %></legend>
+    <header>
+      <h2><%= item.title %></h2>
+      <p><%= item.categories %></p>
+    </header>
+    <p><%= strip_tags item.description %></p>
+    <ul class="actions">
+      <li><a href="#" class="button big">Learn More</a></li>
+    </ul>
+  </div>
+  <span class="image object">
+    <%= image_tag item.image %>
+  </span>
+</section>

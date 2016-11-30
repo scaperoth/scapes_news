@@ -1,0 +1,29 @@
+<h1>News Sources</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th colspan="1"></th>
+      <th colspan="1"></th>
+      <th colspan="1"></th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @news_sources.each do |news_source| %>
+      <tr>
+        <td><%= news_source.name %></td>
+        <td><%= news_source.url %></td>
+        <td><%= link_to 'Show', news_source %></td>
+        <td><%= link_to 'Edit', edit_news_source_path(news_source) %></td>
+        <td><%= link_to 'Destroy', news_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New News source', new_news_source_path %>
