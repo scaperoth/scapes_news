@@ -6,7 +6,7 @@
     article {
         .image {
             height: 239px;
-            width: 360px;
+            width: 100%;
 
             .background-img {
                 transition: all 2s;
@@ -20,6 +20,25 @@
                 &:hover {
                     transform: scale(1.2);
                 }
+            }
+        }
+        
+    }
+}
+@media screen and (min-width: 1200px) {
+    .posts {
+        article {
+            &.col-4 {
+              width: calc(25% - 6em);
+              
+              &:nth-child(3n + 1):before {
+        				display: block;
+        			}
+              
+              &:nth-child(4n + 1):before {
+        				display: none;
+        			}
+              
             }
         }
     }

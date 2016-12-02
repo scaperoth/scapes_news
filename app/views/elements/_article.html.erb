@@ -2,11 +2,11 @@
 <article>
     <legend class="source-title"><%= article.news_source.name %></legend>
     <a target='_blank' href="<%= article.link %>" class="image">
-        <div class="background-img" style="background-image: url('<%= article.image %>') "></div>
+        <div class="background-img" style="background-image: url('<%= article.image =~ URI::regexp ? article.image : '/assets/'+article.image%>') "></div>
     </a>
-    <h3><%= article.title %></h3>
-    <p>Categories: <%= article.categories %></p>
-    <p><%= sanitize article.description, tags: %w(strong em a), attributes: %w(href) %></p>
+    <h3 class="article-title"><%= article.title %></h3>
+    <p class="article-categories">Categories: <%= article.categories %></p>
+    <p class="article-description"><%= sanitize article.description, tags: %w(strong em a), attributes: %w(href) %></p>
     <ul class="actions">
         <li>
             <a href="<%= article.link %>" target='_blank' class="button">More</a>
