@@ -1,6 +1,18 @@
 <% if !article.nil? %>
 <article>
     <legend class="source-title"><%= article.news_source.name %></legend>
+    <% 
+    liked_article = current_user.voted_up_on?(article) 
+    like_icon = 'heart'
+    dislike_icon = 'heart-o'
+    link = liked_article ? news_item_dislike_path(article) : news_item_like_path(article)
+    toggle_link = liked_article ? news_item_like_path(article) : news_item_dislike_path(article)
+    icon = liked_article ? like_icon : dislike_icon
+    toggle_icon = liked_article ? dislike_icon : like_icon
+    %>
+    
+    <%= link_to ('<i class="fa fa-'+icon+'"></i>').html_safe, link, method: :put, remote: true, class: 'like-btn', data: {toggle_icon: toggle_icon, icon: icon, toggle_href: toggle_link, id: 'like-news-item-'+article.id.to_s} %>
+    
     <a target='_blank' href="<%= article.link %>" class="image">
         <div class="background-img" style="background-image: url('<%= article.image =~ URI::regexp ? article.image : '/assets/'+article.image%>') "></div>
     </a>
