@@ -17,9 +17,9 @@ render 'elements/banner', item: @news_items.first
     # loop through all but the 
     # first element and create an 
     # article out of each feed item 
-    @news_items.all[1..-1].each do |f| 
+    @news_items.all[1..-1].each do |news_item| 
     %>
-      <%= render 'elements/article', article: f %>
+      <%= render 'elements/article', article: news_item %>
     <% end %>
   </div>
 </section>
