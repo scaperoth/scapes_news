@@ -42,6 +42,10 @@ a.like-btn.animate i{
   }
 }
 
+.like-area > * {
+  display:inline;
+}
+
 @media screen and (min-width: 1200px) {
     .posts {
         article {

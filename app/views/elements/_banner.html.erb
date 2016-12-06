@@ -2,6 +2,7 @@
 <section id="banner">
   <div class="content">
     <legend class="source-title"><%= item.news_source.name %></legend>
+    <%= render 'elements/like_area', article: item %>
     <header>
       <h2><%= item.title %></h2>
       <p><%= item.categories %></p>

@@ -1,0 +1,17 @@
+<% if !article.nil? %>
+
+<% liked_article = current_user.voted_up_on?(article) %>
+<% like_icon = 'heart' %>
+<% dislike_icon = 'heart-o' %>
+<% link = liked_article ? news_item_dislike_path(article) : news_item_like_path(article) %>
+<% toggle_link = liked_article ? news_item_like_path(article) : news_item_dislike_path(article) %>
+<% icon = liked_article ? like_icon : dislike_icon %>
+<% toggle_icon = liked_article ? dislike_icon : like_icon %>
+
+<div class="like-area">
+    <%= link_to ('<i class="fa fa-'+icon+'"></i>').html_safe, link, method: :put, remote: true, class: 'like-btn', data: {toggle_icon: toggle_icon, icon: icon, toggle_href: toggle_link, id: 'like-news-item-'+article.id.to_s} %>
+
+    <p class="likes-count" data-id="likes-count-<%= article.id.to_s %>"><%= article.get_likes.size %></p>
+</div>
+
+<% end %>
