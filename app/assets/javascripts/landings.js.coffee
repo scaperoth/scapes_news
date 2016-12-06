@@ -2,8 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$(document).on 'click', 'a.like-btn', ->
+  $a = $(this)
+  $a.removeClass('animate')
+  $a.addClass('animate')
+  return
+  
 $(document).on 'ajax:success', 'a.like-btn', (status,data,xhr)->
   data_id = "like-news-item-#{data.id}"
+
+  
   # toggle links
   $("a.like-btn[data-id=#{data_id}]").each ->
     $a = $(this)

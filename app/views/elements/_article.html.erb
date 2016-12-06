@@ -1,13 +1,12 @@
 <% if !article.nil? %>
-<% 
-liked_article = current_user.voted_up_on?(article) 
-like_icon = 'heart'
-dislike_icon = 'heart-o'
-link = liked_article ? news_item_dislike_path(article) : news_item_like_path(article)
-toggle_link = liked_article ? news_item_like_path(article) : news_item_dislike_path(article)
-icon = liked_article ? like_icon : dislike_icon
-toggle_icon = liked_article ? dislike_icon : like_icon
-%>
+<% liked_article = current_user.voted_up_on?(article) %>
+<% like_icon = 'heart' %>
+<% dislike_icon = 'heart-o' %>
+<% link = liked_article ? news_item_dislike_path(article) : news_item_like_path(article) %>
+<% toggle_link = liked_article ? news_item_like_path(article) : news_item_dislike_path(article) %>
+<% icon = liked_article ? like_icon : dislike_icon %>
+<% toggle_icon = liked_article ? dislike_icon : like_icon %>
+
 <article>
     <legend class="source-title"><%= article.news_source.name %></legend>
     

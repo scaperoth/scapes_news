@@ -1,4 +1,5 @@
 class NewsSourcesController < ApplicationController
+  before_action :require_user_signed_in
   include NewsItemsHelper
   
   before_action :set_news_source, only: [:show, :edit, :update, :destroy]

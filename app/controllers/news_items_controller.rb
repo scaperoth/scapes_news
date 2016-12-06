@@ -1,10 +1,11 @@
 class NewsItemsController < ApplicationController
+    before_action :require_user_signed_in
     before_action :set_news_item, only: [:like, :dislike]
     
     def like
         respond_to do |format|
           if current_user.likes @news_item    
-              format.json { render json: @news_item.to_json, head: :ok}
+              format.json { render json: @news_item.to_json}
           else
               format.json { render json: root_path.errors, status: :unprocessable_entity }
           end
@@ -14,7 +15,7 @@ class NewsItemsController < ApplicationController
     def dislike
       respond_to do |format|
           if current_user.dislikes @news_item
-              format.json { render json: @news_item.to_json, head: :ok}
+              format.json { render json: @news_item.to_json}
           else
               format.json { render json: root_path.errors, status: :unprocessable_entity }
           end

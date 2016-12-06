@@ -2,8 +2,16 @@
   <header id="header">
     <span class="logo"><a href="<%= root_path %>"><strong>ScapesNews</strong></a> by <a href="http://github.com/scaperoth">Scaperoth</a></span>
     <ul class="icons">
-      <li><a href="<%= destroy_user_session_path %>" title="<%= user_signed_in? ? "sign-out" : "sign-in" %>" class="icon fa-<%= user_signed_in? ? "sign-out" : "sign-in" %>"></a></li>
-      <li><a href="<%= edit_user_registration_path %>" class="icon fa-user"><span class="label">Account</span></a></li>
+      <% if user_signed_in? %>
+      <li>
+        <%= link_to "", destroy_user_session_path, class: "icon fa-sign-out", method: :delete%>
+      </li>
+      <li>
+        <%= link_to "", edit_user_registration_path, class: "icon fa-user" %>
+      </li>
+      <% else %>
+        <%= link_to "", new_user_session_path, class: "icon fa-sign-in" %>
+      <% end %> 
     </ul>
   </header>
   <legend><small>theme by <a href="https://html5up.net/editorial">HTML5 UP</a></small></legend>

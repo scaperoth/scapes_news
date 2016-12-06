@@ -17,13 +17,16 @@
             <!-- Main -->
             <div id="main">
                 <div class="inner">
-                  
+
                     <%= render partial: "elements/header" %>
-                  </br>
-                    <%= yield %>
-                </div>
+                </br>
+                <%= yield %>
             </div>
-            <%= render partial: "elements/sidebar" %>
         </div>
-    </body>
+
+        <% if user_signed_in? %>
+        <%= render partial: "elements/sidebar" %>
+        <% end %>
+    </div>
+</body>
 </html>
